@@ -1,69 +1,72 @@
-import Image from "next/image";
+import { PinnedStatement } from "@/components/style-check/pinned-statement";
+
+// Temporary style-check page: shows the Flight log colors, type and a scroll
+// animation. It gets replaced section by section as the real site is built.
+
+const colors = [
+  { name: "space", hex: "#0A0F1C", role: "Background", className: "bg-space" },
+  { name: "space-2", hex: "#111829", role: "Raised surface", className: "bg-space-2" },
+  { name: "line", hex: "#26304A", role: "Borders", className: "bg-line" },
+  { name: "paper", hex: "#E8ECF2", role: "Text", className: "bg-paper" },
+  { name: "haze", hex: "#8A94A8", role: "Muted text", className: "bg-haze" },
+  { name: "signal", hex: "#3D7BFF", role: "Accent", className: "bg-signal" },
+  { name: "flare", hex: "#FF7A2F", role: "Highlight", className: "bg-flare" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main>
+      <section className="mx-auto flex min-h-svh max-w-7xl flex-col justify-center px-6">
+        <p className="eyebrow">[ T-minus 10 yrs ]</p>
+        <h1 className="mt-6 text-7xl leading-[0.9] font-bold tracking-tighter md:text-[10rem]">
+          Josh
+          <br />
+          <span className="text-signal">Tripp</span>
+        </h1>
+        <p className="mt-8 max-w-xl text-lg text-haze md:text-xl">
+          Senior full-stack developer and team lead
+          <span className="ml-2 inline-block size-2 rounded-full bg-flare align-middle" />
+        </p>
+        <p className="mt-24 font-mono text-xs tracking-[0.2em] text-haze uppercase">
+          Scroll to explore ↓
+        </p>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <p className="eyebrow">[ Palette ]</p>
+        <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+          {colors.map((color) => (
+            <li key={color.name}>
+              <div className={`aspect-square rounded-xl border border-line ${color.className}`} />
+              <p className="mt-3 font-mono text-sm">{color.name}</p>
+              <p className="font-mono text-xs text-haze">
+                {color.hex} · {color.role}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mx-auto max-w-7xl space-y-8 border-t border-line px-6 py-24">
+        <p className="eyebrow">[ Type ]</p>
+        <p className="text-6xl font-bold tracking-tighter md:text-8xl">Display, Space Grotesk</p>
+        <p className="text-3xl font-medium tracking-tight md:text-5xl">
+          Section heading for each part of the story
+        </p>
+        <p className="max-w-2xl text-lg leading-relaxed text-haze">
+          Body text. Ten years of building web applications end to end, from React front ends to
+          Node.js and Express APIs backed by SQL, MongoDB and Redis.
+        </p>
+        <p className="font-mono text-sm text-haze">
+          Space Mono for labels, stats and little technical details. 0123456789
+        </p>
+      </section>
+
+      <PinnedStatement />
+
+      <section className="flex min-h-[60svh] items-center justify-center px-6">
+        <p className="font-mono text-sm text-haze">[ End of style check ]</p>
+      </section>
+    </main>
   );
 }

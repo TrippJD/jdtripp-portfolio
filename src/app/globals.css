@@ -1,26 +1,50 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * "Flight log" design tokens.
+ * Colors become Tailwind utilities, e.g. bg-space, text-paper, text-signal, border-line.
+ */
+@theme {
+  --color-space: #0a0f1c; /* page background */
+  --color-space-2: #111829; /* raised surface */
+  --color-space-3: #1a2338; /* hover / higher surface */
+  --color-line: #26304a; /* hairlines and borders */
+  --color-paper: #e8ecf2; /* primary text */
+  --color-haze: #8a94a8; /* secondary text */
+  --color-signal: #3d7bff; /* primary accent */
+  --color-flare: #ff7a2f; /* secondary accent, use sparingly */
 }
 
+/* Fonts come from next/font in layout.tsx, so reference their CSS variables inline. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-space font-sans text-paper antialiased;
+  }
+
+  ::selection {
+    @apply bg-signal text-space;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-flare;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Small monospace label, e.g. "[ T-MINUS 10 YRS ]". */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-signal);
 }
