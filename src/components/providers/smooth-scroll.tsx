@@ -47,7 +47,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   if (reducedMotion) return children;
 
   return (
-    <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
+    <ReactLenis root options={{ autoRaf: false, anchors: true }} ref={lenisRef}>
       <ScrollTriggerSync />
       {children}
     </ReactLenis>

@@ -14,6 +14,17 @@
   --color-haze: #8a94a8; /* secondary text */
   --color-signal: #3d7bff; /* primary accent */
   --color-flare: #ff7a2f; /* secondary accent, use sparingly */
+
+  --animate-scroll-cue: scroll-cue 1.8s ease-in-out infinite;
+
+  @keyframes scroll-cue {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(200%);
+    }
+  }
 }
 
 /* Fonts come from next/font in layout.tsx, so reference their CSS variables inline. */
