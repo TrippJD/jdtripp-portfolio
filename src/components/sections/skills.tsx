@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { skills } from "@/content/site";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 import { TechMarquee } from "./tech-marquee";
 
 /**
@@ -22,7 +22,11 @@ export function Skills() {
           duration: 0.9,
           stagger: 0.08,
           ease: "power3.out",
-          scrollTrigger: { trigger: "[data-skill-list]", start: "top 80%", once: true },
+          scrollTrigger: {
+            trigger: "[data-skill-list]",
+            start: "top 80%",
+            toggleActions: PLAY_ONCE,
+          },
         });
       });
     },

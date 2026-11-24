@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { build } from "@/content/site";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 import { LiveTelemetry } from "./live-telemetry";
 
 /** Section 6: how this site was built, with live readings from the page. */
@@ -19,7 +19,7 @@ export function BuildNotes() {
             y: 40,
             duration: 0.9,
             ease: "power3.out",
-            scrollTrigger: { trigger: card, start: "top 88%", once: true },
+            scrollTrigger: { trigger: card, start: "top 88%", toggleActions: PLAY_ONCE },
           });
         });
       });

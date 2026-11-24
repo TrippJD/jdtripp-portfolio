@@ -254,6 +254,29 @@ export const build = {
   repo: "https://github.com/TrippJD/jdtripp-portfolio",
 } as const;
 
+// About section. Written for a hiring manager: who I am, how I work, why it matters.
+export const about = {
+  eyebrow: "About",
+  heading: "Hand me the hard problem.",
+  paragraphs: [
+    "I'm Josh. For ten years I've taken software from a rough idea to something people depend on every day. When a project lands on my desk, I own all of it: the data model, the API, the interface, the release, and what happens when something breaks.",
+    "I learn fast because I've had to. I started out in aerospace and worked my way into software, and I've been picking up whatever the next problem demands ever since. New stack, new domain, unfamiliar codebase: I get productive quickly and leave things better than I found them.",
+    "Leading a team taught me that great engineering is a team result. I set clear priorities, keep code reviews fast and honest, and make sure every developer knows what we're shipping, why, and by when. The goal is a team that hits its dates and gets stronger with every release.",
+    "If you need someone who can build it and lead the people building it, let's talk.",
+  ],
+  photo: {
+    src: "/images/josh-portrait.jpg",
+    alt: "Black and white portrait of Josh Tripp with a slight smile, short gray hair, a trimmed beard and a hoodie",
+  },
+  badge: [
+    { label: "Name", value: "Josh Tripp" },
+    { label: "Role", value: "Full-stack / Team lead" },
+    { label: "Base", value: "Provo, UT" },
+    { label: "Studied", value: "Aerospace, UVU" },
+    { label: "Training", value: "Zero To Mastery" },
+  ],
+} as const;
+
 export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },

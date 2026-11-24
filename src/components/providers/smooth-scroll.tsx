@@ -22,7 +22,26 @@ function usePrefersReducedMotion() {
 
 /** Keeps ScrollTrigger's positions in step with Lenis's smoothed scroll. */
 function ScrollTriggerSync() {
-  useLenis(ScrollTrigger.update);
+  const lenis = useLenis(ScrollTrigger.update);
+
+  // Pinned sections change the page height when ScrollTrigger recalculates.
+  // Re-measure Lenis then too, so anchor links never stop at a stale limit.
+  // Deferred a frame: resizing mid-refresh fires a scroll update while
+  // ScrollTrigger is still building its triggers, which crashes it.
+  useEffect(() => {
+    if (!lenis) return;
+    let frame = 0;
+    const onRefresh = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => lenis.resize());
+    };
+    ScrollTrigger.addEventListener("refresh", onRefresh);
+    return () => {
+      cancelAnimationFrame(frame);
+      ScrollTrigger.removeEventListener("refresh", onRefresh);
+    };
+  }, [lenis]);
+
   return null;
 }
 
@@ -43,6 +62,34 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     gsap.ticker.lagSmoothing(0);
     return () => gsap.ticker.remove(update);
   }, [reducedMotion]);
+
+  // Arriving on a link like /#about: the browser jumps before the pinned
+  // sections add their height, so it lands too early. Once fonts are in and
+  // the scroll animations have measured the page, jump to the target again.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.length < 2) return;
+
+    let cancelled = false;
+    document.fonts.ready.then(() =>
+      requestAnimationFrame(() => {
+        if (cancelled) return;
+        ScrollTrigger.refresh();
+        const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+        if (!target) return;
+        const lenis = lenisRef.current?.lenis;
+        if (lenis) {
+          lenis.resize();
+          lenis.scrollTo(target, { immediate: true, force: true });
+        } else {
+          target.scrollIntoView();
+        }
+      }),
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   if (reducedMotion) return children;
 

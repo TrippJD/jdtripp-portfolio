@@ -2,7 +2,7 @@
 
 import { useRef, type CSSProperties } from "react";
 import { stats } from "@/content/site";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 
 // Each digit is a strip of 0-9 twice. Its resting position (--d) is the
 // target digit in the second run, so animating --d up from 0 rolls the
@@ -45,7 +45,7 @@ export function Stats() {
           const tl = gsap.timeline({
             delay: index * 0.12,
             // Each stat starts when it scrolls in, so stacked stats on mobile roll on arrival.
-            scrollTrigger: { trigger: item, start: "top 85%", once: true },
+            scrollTrigger: { trigger: item, start: "top 85%", toggleActions: PLAY_ONCE },
           });
           tl.from(item.querySelectorAll("[data-rule]"), {
             scaleX: 0,
