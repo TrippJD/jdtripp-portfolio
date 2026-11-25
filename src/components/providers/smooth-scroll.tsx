@@ -63,32 +63,53 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => gsap.ticker.remove(update);
   }, [reducedMotion]);
 
-  // Arriving on a link like /#about: the browser jumps before the pinned
-  // sections add their height, so it lands too early. Once fonts are in and
-  // the scroll animations have measured the page, jump to the target again.
+  // Arriving on a link like /#contact: the browser jumps before fonts load
+  // and the pinned sections add their height, so it lands too early. Jump to
+  // the target again once things settle, and keep re-aiming for a few seconds
+  // whenever the page height changes, until the visitor scrolls themselves.
   useEffect(() => {
     const hash = window.location.hash;
     if (hash.length < 2) return;
+    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (!target) return;
 
-    let cancelled = false;
-    document.fonts.ready.then(() =>
-      requestAnimationFrame(() => {
-        if (cancelled) return;
-        ScrollTrigger.refresh();
-        const target = document.getElementById(decodeURIComponent(hash.slice(1)));
-        if (!target) return;
-        const lenis = lenisRef.current?.lenis;
-        if (lenis) {
-          lenis.resize();
-          lenis.scrollTo(target, { immediate: true, force: true });
-        } else {
-          target.scrollIntoView();
-        }
-      }),
-    );
-    return () => {
-      cancelled = true;
+    let frame = 0;
+    let done = false;
+    const jump = () => {
+      if (done) return;
+      const lenis = lenisRef.current?.lenis;
+      if (lenis) {
+        lenis.resize();
+        lenis.scrollTo(target, { immediate: true, force: true });
+      } else {
+        target.scrollIntoView();
+      }
     };
+    const scheduleJump = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(jump);
+    };
+
+    const heightWatcher = new ResizeObserver(scheduleJump);
+    const stop = () => {
+      done = true;
+      cancelAnimationFrame(frame);
+      heightWatcher.disconnect();
+      clearTimeout(timeout);
+      for (const type of userScrollEvents) window.removeEventListener(type, stop);
+    };
+    const userScrollEvents = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
+    for (const type of userScrollEvents) window.addEventListener(type, stop, { passive: true });
+    const timeout = setTimeout(stop, 4000);
+
+    document.fonts.ready.then(() => {
+      if (done) return;
+      ScrollTrigger.refresh();
+      scheduleJump();
+      heightWatcher.observe(document.body);
+    });
+
+    return stop;
   }, []);
 
   if (reducedMotion) return children;
