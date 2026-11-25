@@ -277,9 +277,32 @@ export const about = {
   ],
 } as const;
 
+// Contact section.
+export const contact = {
+  eyebrow: "Contact",
+  heading: "Ready when you are.",
+  intro:
+    "Hiring a senior engineer or a team lead? Tell me about the role, the team and the problem you're solving, and I'll get back to you.",
+  elsewhere: [
+    { label: "LinkedIn", href: site.links.linkedin },
+    { label: "GitHub", href: site.links.github },
+  ],
+  success: {
+    heading: "Message received.",
+    body: "Thanks for reaching out. I'll reply to the email you gave me soon.",
+    again: "Send another message",
+  },
+} as const;
+
 export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ] as const;
+
+// Footer.
+export const footer = {
+  tagline: "Senior full-stack developer and team lead in Provo, Utah.",
+  signoff: "Designed and built by Josh Tripp. Next.js on Vercel.",
+} as const;
