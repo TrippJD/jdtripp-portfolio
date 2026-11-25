@@ -74,19 +74,20 @@ export function About() {
               </span>
             </div>
 
-            {/* Photo with a faint instrument grid and corner brackets over it. */}
-            <div className="relative">
+            {/* Transparent cutout on a blue glow, with a faint instrument grid
+                behind it and viewfinder brackets on top. */}
+            <div className="relative bg-[radial-gradient(circle_at_50%_72%,rgba(61,123,255,0.5),transparent_62%)]">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-line)_1px,transparent_1px)] [mask-image:linear-gradient(to_bottom,black,transparent)] bg-[size:24px_24px] opacity-60"
+              />
               <Image
                 src={about.photo.src}
                 alt={about.photo.alt}
                 width={800}
                 height={1000}
                 sizes="(min-width: 1024px) 320px, 384px"
-                className="block h-auto w-full"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-line)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_50%_40%,transparent_35%,black_80%)] bg-[size:24px_24px] opacity-40"
+                className="relative block h-auto w-full"
               />
               <span
                 aria-hidden="true"

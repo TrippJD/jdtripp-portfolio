@@ -265,8 +265,8 @@ export const about = {
     "If you need someone who can build it and lead the people building it, let's talk.",
   ],
   photo: {
-    src: "/images/josh-portrait.jpg",
-    alt: "Black and white portrait of Josh Tripp with a slight smile, short gray hair, a trimmed beard and a hoodie",
+    src: "/images/josh-cutout.webp",
+    alt: "Portrait of Josh Tripp smiling, with short gray hair, a trimmed beard and a light gray hoodie",
   },
   badge: [
     { label: "Name", value: "Josh Tripp" },
