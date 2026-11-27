@@ -20,7 +20,7 @@ export const site = {
 
 // Pinned statement after the hero. Segments marked accent are highlighted.
 export const statement = {
-  eyebrow: "Scope",
+  eyebrow: "Mission",
   segments: [
     {
       text: "The interface people touch. The API behind it. The data underneath. And",
@@ -304,5 +304,5 @@ export const navLinks = [
 // Footer.
 export const footer = {
   tagline: "Senior software engineer and team lead in Provo, Utah.",
-  signoff: "Designed and built by Josh Tripp. Next.js on Vercel.",
+  signoff: "Designed and built by Josh Tripp.",
 } as const;
