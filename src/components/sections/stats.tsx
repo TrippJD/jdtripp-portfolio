@@ -3,6 +3,7 @@
 import { useRef, type CSSProperties } from "react";
 import { stats } from "@/content/site";
 import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
+import { Brackets } from "@/components/brackets";
 
 // Each digit is a strip of 0-9 twice. Its resting position (--d) is the
 // target digit in the second run, so animating --d up from 0 rolls the
@@ -80,7 +81,9 @@ export function Stats() {
   return (
     <section ref={root} aria-labelledby="stats-heading" className="px-6 py-32 md:py-40">
       <div className="mx-auto max-w-7xl">
-        <p className="eyebrow">[ {stats.eyebrow} ]</p>
+        <p className="eyebrow">
+          <Brackets>{stats.eyebrow}</Brackets>
+        </p>
         <h2 id="stats-heading" className="mt-6 text-3xl font-bold tracking-tight md:text-5xl">
           {stats.heading}
         </h2>
@@ -104,7 +107,7 @@ export function Stats() {
                 </span>
                 <RollingNumber value={item.value} />
                 {"suffix" in item && (
-                  <span aria-hidden="true" className="ml-1 text-[0.5em] text-signal">
+                  <span aria-hidden="true" className="ml-1 text-[0.5em] text-flare">
                     {item.suffix}
                   </span>
                 )}

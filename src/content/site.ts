@@ -2,9 +2,8 @@
 
 export const site = {
   name: { first: "Josh", last: "Tripp" },
-  role: "Senior full-stack developer and team lead",
-  summary:
-    "Ten years of building web apps end to end, from React front ends to Node.js APIs and the databases behind them.",
+  role: "Senior software engineer and team lead",
+  summary: "Ten years building production web apps for e-commerce, analytics and internal tools.",
   current: { title: "Team lead", company: "Troomi" },
   location: {
     city: "Provo, UT",
@@ -21,10 +20,10 @@ export const site = {
 
 // Pinned statement after the hero. Segments marked accent are highlighted.
 export const statement = {
-  eyebrow: "Mission",
+  eyebrow: "Scope",
   segments: [
     {
-      text: "I build the whole thing. The interface people touch, the API behind it, the data underneath, and",
+      text: "The interface people touch. The API behind it. The data underneath. And",
     },
     { text: "the team that ships it.", accent: true },
   ],
@@ -52,7 +51,7 @@ export const stats = {
       value: "33",
       suffix: "%",
       label: "Fewer app dependencies",
-      detail: "Trimmed over six months at Accolade",
+      detail: "Leaner, faster and easier to maintain, in six months at Accolade",
     },
     {
       value: "2022",
@@ -83,7 +82,8 @@ export const experience: {
 } = {
   eyebrow: "Flight log",
   heading: "Five stops, one trajectory.",
-  intro: "Ten years from freelance sites to leading a dev team. Scroll to follow the route.",
+  intro:
+    "Every stop added something: design, performance, scale, then leadership. Scroll to follow the route.",
   legs: [
     {
       company: "Freelance",
@@ -129,7 +129,7 @@ export const experience: {
       highlights: [
         "Led a six-month rollout of a new headless CMS for the e-commerce site as primary developer",
         "Built responsive sites and apps with TypeScript, React and Angular",
-        "Named Most Valued Employee in 2022",
+        "Worked with designers and back-end teams on component-based UIs, kept quality up with code reviews and CI/CD",
       ],
       tech: ["TypeScript", "React", "Next.js", "Angular", "Contentstack", "SASS"],
     },
@@ -137,13 +137,13 @@ export const experience: {
       company: "Troomi",
       title: "Senior full-stack developer and team lead",
       location: "Orem, UT",
-      dates: "2025 – Now",
+      dates: "2025 –",
       current: true,
       url: "https://troomi.com",
       highlights: [
         "Promoted to team lead shortly after joining: release planning, timelines and code reviews",
         "Mentor developers through pairing, reviews and architecture discussions",
-        "Build e-commerce features, executive analytics dashboards and support automation tools",
+        "Build features for Troomi's kid-safe phone e-commerce sites, plus executive analytics dashboards and support automation tools",
       ],
       tech: ["React", "Node.js", "Express", "MariaDB", "MongoDB", "Redis"],
     },
@@ -270,7 +270,7 @@ export const about = {
   },
   badge: [
     { label: "Name", value: "Josh Tripp" },
-    { label: "Role", value: "Full-stack / Team lead" },
+    { label: "Role", value: "Sr. engineer / Team lead" },
     { label: "Base", value: "Provo, UT" },
     { label: "Studied", value: "Aerospace, UVU" },
     { label: "Training", value: "Zero To Mastery" },
@@ -303,6 +303,6 @@ export const navLinks = [
 
 // Footer.
 export const footer = {
-  tagline: "Senior full-stack developer and team lead in Provo, Utah.",
+  tagline: "Senior software engineer and team lead in Provo, Utah.",
   signoff: "Designed and built by Josh Tripp. Next.js on Vercel.",
 } as const;

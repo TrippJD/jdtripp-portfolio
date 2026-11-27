@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Starfield } from "@/components/hero/starfield";
+import { Brackets } from "@/components/brackets";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -31,7 +32,9 @@ export default function NotFound() {
       </header>
 
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-24">
-        <p className="eyebrow">[ Error 404 · Off course ]</p>
+        <p className="eyebrow">
+          <Brackets>Error 404 · Off course</Brackets>
+        </p>
         <h1 className="mt-6 text-6xl leading-[0.9] font-bold tracking-tighter md:text-8xl">
           Lost in <span className="text-signal">space.</span>
         </h1>

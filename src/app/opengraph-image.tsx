@@ -78,7 +78,9 @@ export default async function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          [ Flight log 001 · {site.location.city} ]
+          <span style={{ color: colors.flare }}>[</span>
+          <span style={{ margin: "0 14px" }}>Flight log 001 · {site.location.city}</span>
+          <span style={{ color: colors.flare }}>]</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>

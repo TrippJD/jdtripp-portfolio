@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { about } from "@/content/site";
 import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
+import { Brackets } from "@/components/brackets";
 
 /** Section 7: about me, with the photo presented as a crew ID badge. */
 export function About() {
@@ -126,7 +127,7 @@ export function About() {
 
         <div>
           <p data-about-fade className="eyebrow">
-            [ {about.eyebrow} ]
+            <Brackets>{about.eyebrow}</Brackets>
           </p>
           <h2
             id="about-heading"

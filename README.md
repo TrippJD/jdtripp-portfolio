@@ -1,6 +1,6 @@
 # jdtripp.com
 
-The personal site of **Josh Tripp**, a senior full-stack developer and team lead in Provo, Utah.
+The personal site of **Josh Tripp**, a senior software engineer and team lead in Provo, Utah.
 
 My professional work lives in private codebases, so this repo is one you can read. The site is a single scroll-driven page with a "flight log" theme: a star field that streaks as you scroll, pinned sections, a sideways-scrolling career timeline and a working contact form.
 

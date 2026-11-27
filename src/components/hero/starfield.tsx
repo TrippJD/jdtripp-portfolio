@@ -3,7 +3,14 @@
 import { useLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
 
-type Star = { x: number; y: number; z: number; blue: boolean };
+// Star colours as RGB, matching the paper, signal and flare tokens.
+const TINTS = {
+  paper: "232, 236, 242",
+  signal: "61, 123, 255",
+  flare: "255, 122, 47",
+} as const;
+
+type Star = { x: number; y: number; z: number; tint: keyof typeof TINTS };
 
 const BASE_SPEED = 12; // px per second at full depth
 const SCROLL_BOOST = 0.9; // how much scroll velocity speeds the stars up
@@ -37,11 +44,17 @@ export function Starfield({ className }: { className?: string }) {
     let smoothedVelocity = 0;
     const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
 
+    // Mostly white, a few blue, and a rare warm orange one.
+    const pickTint = (): Star["tint"] => {
+      const roll = Math.random();
+      return roll < 0.03 ? "flare" : roll < 0.11 ? "signal" : "paper";
+    };
+
     const makeStar = (y = Math.random() * height): Star => ({
       x: Math.random() * width,
       y,
       z: 0.15 + Math.random() * 0.85,
-      blue: Math.random() < 0.08,
+      tint: pickTint(),
     });
 
     const resize = () => {
@@ -76,9 +89,7 @@ export function Starfield({ className }: { className?: string }) {
         const streak = Math.min(MAX_STREAK, boost * 14 * star.z);
         const alpha = 0.25 + star.z * 0.65;
 
-        ctx.strokeStyle = ctx.fillStyle = star.blue
-          ? `rgba(61, 123, 255, ${alpha})`
-          : `rgba(232, 236, 242, ${alpha})`;
+        ctx.strokeStyle = ctx.fillStyle = `rgba(${TINTS[star.tint]}, ${alpha})`;
 
         if (streak > 1.5) {
           ctx.lineWidth = star.z * 1.6;

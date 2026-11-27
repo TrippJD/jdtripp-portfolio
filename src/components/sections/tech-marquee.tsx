@@ -56,7 +56,7 @@ export function TechMarquee({ items }: { items: readonly string[] }) {
           <span className="text-3xl font-bold tracking-tight whitespace-nowrap text-haze md:text-5xl">
             {item}
           </span>
-          <span aria-hidden="true" className="text-signal">
+          <span aria-hidden="true" className="text-flare">
             ✦
           </span>
         </li>

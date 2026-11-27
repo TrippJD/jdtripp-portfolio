@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { build } from "@/content/site";
 import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 import { LiveTelemetry } from "./live-telemetry";
+import { Brackets } from "@/components/brackets";
 
 /** Section 6: how this site was built, with live readings from the page. */
 export function BuildNotes() {
@@ -37,7 +38,9 @@ export function BuildNotes() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         {/* Left column stays in view while the feature cards scroll past. */}
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="eyebrow">[ {build.eyebrow} ]</p>
+          <p className="eyebrow">
+            <Brackets>{build.eyebrow}</Brackets>
+          </p>
           <h2 id="build-heading" className="mt-6 text-3xl font-bold tracking-tight md:text-5xl">
             {build.heading}
           </h2>

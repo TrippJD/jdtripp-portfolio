@@ -5,6 +5,7 @@ import { sendContactMessage, type ContactField, type ContactState } from "@/app/
 import { Starfield } from "@/components/hero/starfield";
 import { contact } from "@/content/site";
 import { Turnstile } from "./turnstile";
+import { Brackets } from "@/components/brackets";
 
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -86,7 +87,9 @@ export function Contact() {
 
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-24">
         <div>
-          <p className="eyebrow">[ {contact.eyebrow} ]</p>
+          <p className="eyebrow">
+            <Brackets>{contact.eyebrow}</Brackets>
+          </p>
           <h2
             id="contact-heading"
             className="mt-6 text-[2.6rem] leading-[0.95] font-bold tracking-tighter sm:text-5xl md:text-7xl"
@@ -116,7 +119,9 @@ export function Contact() {
         <div className="rounded-2xl border border-line bg-space-2/80 p-6 backdrop-blur md:p-10">
           {showSuccess ? (
             <div role="status" className="flex min-h-96 flex-col justify-center">
-              <p className="eyebrow">[ Transmission received ]</p>
+              <p className="eyebrow">
+                <Brackets>Transmission received</Brackets>
+              </p>
               <p className="mt-6 text-4xl font-bold tracking-tight">{contact.success.heading}</p>
               <p className="mt-4 max-w-sm text-lg leading-relaxed text-haze">
                 {state.message ?? contact.success.body}

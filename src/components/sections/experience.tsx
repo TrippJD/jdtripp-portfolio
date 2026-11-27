@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { experience, type Leg } from "@/content/site";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { Brackets } from "@/components/brackets";
 
 // Layout switch: on large screens (with motion allowed) the legs sit in one
 // long row that scrolls sideways while the section is pinned. Everywhere else
@@ -158,7 +159,9 @@ export function Experience() {
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow">[ {experience.eyebrow} ]</p>
+            <p className="eyebrow">
+              <Brackets>{experience.eyebrow}</Brackets>
+            </p>
             <h2
               id="experience-heading"
               className="mt-6 text-3xl font-bold tracking-tight md:text-5xl"

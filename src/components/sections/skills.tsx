@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { skills } from "@/content/site";
 import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 import { TechMarquee } from "./tech-marquee";
+import { Brackets } from "@/components/brackets";
 
 /**
  * Section 5: big skill rows. On devices with a mouse, each row's details stay
@@ -36,7 +37,9 @@ export function Skills() {
   return (
     <section ref={root} id="skills" aria-labelledby="skills-heading" className="py-32 md:py-40">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="eyebrow">[ {skills.eyebrow} ]</p>
+        <p className="eyebrow">
+          <Brackets>{skills.eyebrow}</Brackets>
+        </p>
         <h2 id="skills-heading" className="mt-6 text-3xl font-bold tracking-tight md:text-5xl">
           {skills.heading}
         </h2>

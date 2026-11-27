@@ -5,6 +5,7 @@ import { site } from "@/content/site";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { LocalClock } from "./local-clock";
 import { Starfield } from "./starfield";
+import { Brackets } from "@/components/brackets";
 
 const readouts = [
   { label: "Lat", value: site.location.lat },
@@ -89,7 +90,7 @@ export function Hero() {
         <div>
           <div data-exit>
             <p data-eyebrow className="eyebrow">
-              [ Flight log 001 · {site.location.city} ]
+              <Brackets>Flight log 001 · {site.location.city}</Brackets>
             </p>
           </div>
 

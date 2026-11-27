@@ -15,9 +15,9 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
-const title = "Josh Tripp | Senior Full-Stack Developer";
+const title = "Josh Tripp | Senior Software Engineer";
 const description =
-  "Josh Tripp is a senior full-stack developer and team lead in Provo, Utah, building web apps end to end, from React front ends to Node.js APIs.";
+  "Josh Tripp is a senior software engineer and team lead in Provo, Utah, building production web apps end to end, from React front ends to Node.js APIs.";
 
 // Preview images come from opengraph-image.tsx and twitter-image.tsx.
 export const metadata: Metadata = {

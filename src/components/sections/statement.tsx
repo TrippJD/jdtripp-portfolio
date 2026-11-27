@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { statement } from "@/content/site";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
+import { Brackets } from "@/components/brackets";
 
 /**
  * Section 2: the section pins while the statement lights up word by word
@@ -49,7 +50,9 @@ export function Statement() {
       className="flex min-h-svh flex-col justify-center px-6"
     >
       <div className="mx-auto w-full max-w-6xl">
-        <p className="eyebrow">[ {statement.eyebrow} ]</p>
+        <p className="eyebrow">
+          <Brackets>{statement.eyebrow}</Brackets>
+        </p>
         <h2
           id="statement-heading"
           data-statement
