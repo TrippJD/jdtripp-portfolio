@@ -6,7 +6,7 @@ import { about } from "@/content/site";
 import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 import { Brackets } from "@/components/brackets";
 
-/** Section 7: about me, with the photo presented as a crew ID badge. */
+/** Section 8: about me, with the photo presented as a crew ID badge. */
 export function About() {
   const root = useRef<HTMLElement>(null);
   const badge = useRef<HTMLDivElement>(null);

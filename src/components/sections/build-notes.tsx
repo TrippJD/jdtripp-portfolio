@@ -6,7 +6,7 @@ import { gsap, PLAY_ONCE, useGSAP } from "@/lib/gsap";
 import { LiveTelemetry } from "./live-telemetry";
 import { Brackets } from "@/components/brackets";
 
-/** Section 6: how this site was built, with live readings from the page. */
+/** Section 7: how this site was built, with live readings from the page. */
 export function BuildNotes() {
   const root = useRef<HTMLElement>(null);
 

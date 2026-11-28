@@ -33,7 +33,7 @@ function RollingNumber({ value }: { value: string }) {
   );
 }
 
-/** Section 3: resume numbers that roll into place when they scroll into view. */
+/** Section 4: resume numbers that roll into place when they scroll into view. */
 export function Stats() {
   const root = useRef<HTMLElement>(null);
 

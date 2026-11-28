@@ -2,7 +2,7 @@
 
 The personal site of **Josh Tripp**, a senior software engineer and team lead in Provo, Utah.
 
-My professional work lives in private codebases, so this repo is one you can read. The site is a single scroll-driven page with a "flight log" theme: a star field that streaks as you scroll, pinned sections, a sideways-scrolling career timeline and a working contact form.
+My professional work lives in private codebases, so this repo is one you can read. The site is a single scroll-driven page with a "flight log" theme: a star field that streaks as you scroll, pinned sections, an illustrated rocket-launch story your scroll plays like a film, a sideways-scrolling career timeline and a working contact form.
 
 **Live:** [jdtripp.com](https://jdtripp.com)
 
@@ -36,7 +36,8 @@ src/
   app/            page, layout, contact Server Action, icons, link preview, 404
   components/
     hero/         hero section, star field, live clock
-    sections/     statement, stats, timeline, skills, build notes, about, contact
+    sections/     statement, launch story, stats, timeline, skills, build notes, about, contact
+    launch/       the launch story's SVG cast, scenes and Earth
     providers/    smooth scrolling
   content/        all site copy (site.ts)
   lib/            GSAP setup, image helpers, site URL
