@@ -7,7 +7,7 @@ import { TechMarquee } from "./tech-marquee";
 import { Brackets } from "@/components/brackets";
 
 /**
- * Section 5: big skill rows. On devices with a mouse, each row's details stay
+ * Section 6: big skill rows. On devices with a mouse, each row's details stay
  * folded until you hover or focus it; on touch screens they're always open.
  */
 export function Skills() {

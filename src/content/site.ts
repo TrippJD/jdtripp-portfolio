@@ -30,6 +30,76 @@ export const statement = {
   footnote: ["Front end", "Back end", "Data", "Leadership"],
 } as const;
 
+// "Launch day": the scroll-driven story after the statement, shipping software told as a
+// rocket launch. Labels show on screen; descriptions are what screen readers hear, and what
+// the still frames say when motion is reduced. `art` holds the words drawn inside the scenes.
+export const launch = {
+  eyebrow: "Launch day",
+  heading: "How a feature ships",
+  scenes: [
+    {
+      id: "sketch",
+      label: "Sketch it.",
+      description:
+        "The lead tosses a crumpled draft over their shoulder into an overflowing wastebasket, then floats up with a giant pencil and draws a rocket on a big sheet of graph paper. A sticky note says: make it fly.",
+    },
+    {
+      id: "build",
+      label: "Build it.",
+      description:
+        "The crew builds the rocket. A crane lowers the nose cone, one astronaut tightens a bolt from the launch tower, and the lead rolls the last fin in on a cart.",
+    },
+    {
+      id: "fix",
+      label: "Find it. Fix it.",
+      description:
+        "The tester inspects the rocket while a bug sneaks onto a fin. She jumps in surprise, and the builder runs over and squashes it with a wrench.",
+    },
+    {
+      id: "review",
+      label: "Review it.",
+      description:
+        "The crew reviews a pull request called Add launch sequence. One leaves a tiny nitpick, another says looks good to me, and a big APPROVED stamp lands on it.",
+    },
+    {
+      id: "countdown",
+      label: "Countdown.",
+      description:
+        "Three, two, one. The rocket shakes on the pad as smoke builds, and all three crew squish their faces into the porthole to watch.",
+    },
+    {
+      id: "ship",
+      label: "Ship it.",
+      description:
+        "Liftoff. The rocket climbs on a bright flame while the stars streak past and the crew cheers inside.",
+    },
+    {
+      id: "orbit",
+      label: "Keep it flying.",
+      description:
+        "The rocket reaches orbit with a little v1.0 flag. The lead floats out on a tether to wave, and city lights blink on across Earth: people using what shipped.",
+    },
+  ],
+  art: {
+    crew: "CREW: 3",
+    snacks: "SNACK BAY",
+    fins: "FINS: TBD",
+    draft: "v0.1",
+    todo: ["TODO:", "make it", "fly."],
+    coffee: "coffee break",
+    buzz: "bzzz",
+    squashed: "Bug #42 squashed",
+    bonk: "BONK!",
+    prNumber: "PULL REQUEST #128",
+    prTitle: "Add launch sequence",
+    nit: "nit: fin 2px left",
+    lgtm: "LGTM!",
+    approved: "APPROVED",
+    tMinus: "[ T-MINUS ]",
+    version: "v1.0",
+  },
+} as const;
+
 // Stats strip. Values are taken from the resume.
 export const stats = {
   eyebrow: "Telemetry",

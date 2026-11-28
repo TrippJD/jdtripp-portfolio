@@ -61,7 +61,7 @@ function Field({
   );
 }
 
-/** Section 8: the contact form, closing the page where the hero opened: in the stars. */
+/** Section 9: the contact form, closing the page where the hero opened: in the stars. */
 export function Contact() {
   const [state, formAction, pending] = useActionState(submit, initialState);
   const [dismissedAttempt, setDismissedAttempt] = useState(-1);

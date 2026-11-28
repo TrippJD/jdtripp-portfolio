@@ -94,7 +94,7 @@ function LegCard({ leg, index }: { leg: Leg; index: number }) {
   );
 }
 
-/** Section 4: the career timeline, told as a flight route. */
+/** Section 5: the career timeline, told as a flight route. */
 export function Experience() {
   const root = useRef<HTMLElement>(null);
   const track = useRef<HTMLOListElement>(null);
